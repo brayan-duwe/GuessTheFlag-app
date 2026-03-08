@@ -47,7 +47,7 @@ struct ContentView: View {
                         Button("Continue", action: askQuestion)
                     } message: {
                         Text(scoreMessage)
-                    } .alert("The game ended", isPresented: $reset) {
+                    } .alert("The game ended. Your score: \(score)", isPresented: $reset) {
                         Button("Restart game", action: resetGame)
                     }
                 }
