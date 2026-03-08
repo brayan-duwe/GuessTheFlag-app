@@ -12,11 +12,16 @@ This is a simple game where the player guesses the correct flag. The game shows 
 The app structure is very simple, basically containing the ContentView and the Assets (the flags).
 
 ## Preview
- <img width="439" height="869" alt="Image" src="https://github.com/user-attachments/assets/bdac78fc-c9d7-455b-a6ed-e373791c5e21" />
+ <img width="219" height="434" alt="Image" src="https://github.com/user-attachments/assets/bdac78fc-c9d7-455b-a6ed-e373791c5e21" />
+ </br>
 <sub>Starting the game</sub>
-<img width="424" height="319" alt="Image" src="https://github.com/user-attachments/assets/54ed1579-539e-403b-a751-7290a5e6c187" />
+</br>
+<img width="212" height="159" alt="Image" src="https://github.com/user-attachments/assets/54ed1579-539e-403b-a751-7290a5e6c187" />
+ </br>
 <sub>Correct answer</sub>
-<img width="426" height="318" alt="Image" src="https://github.com/user-attachments/assets/461d8872-ff5b-45c0-98dc-657796ce394f" />
+<img width="212" height="159" alt="Image" src="https://github.com/user-attachments/assets/461d8872-ff5b-45c0-98dc-657796ce394f" />
+ </br>
 <sub>Wrong answer</sub>
-<img width="428" height="318" alt="Image" src="https://github.com/user-attachments/assets/4eee6277-b810-4e02-ba70-b81f070c1457" />
+<img width="212" height="159" alt="Image" src="https://github.com/user-attachments/assets/4eee6277-b810-4e02-ba70-b81f070c1457" />
+ </br>
 <sub>End of the game</sub>
