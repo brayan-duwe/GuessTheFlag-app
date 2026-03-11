@@ -1,5 +1,21 @@
 import SwiftUI
 
+struct Flag: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 20)
+            .background(.regularMaterial)
+            .clipShape(.rect(cornerRadius: 20))
+    }
+}
+
+extension View {
+    func flagStyle() -> some View {
+        modifier(Flag())
+    }
+}
+
 struct ContentView: View {
     @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Monaco", "Nigeria", "Poland", "Spain", "UK", "Ukraine","US"].shuffled()
     @State private var correctAnswer = Int.random(in: 0...2)
@@ -9,8 +25,6 @@ struct ContentView: View {
     @State private var scoreMessage = ""
     @State private var reset = false
     @State private var round = 0
-
-
     
     var body: some View {
         ZStack {
@@ -51,10 +65,7 @@ struct ContentView: View {
                         Button("Restart game", action: resetGame)
                     }
                 }
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 20)
-                .background(.regularMaterial)
-                .clipShape(.rect(cornerRadius: 20))
+                .flagStyle()
                 
                 Spacer()
                 Spacer()
