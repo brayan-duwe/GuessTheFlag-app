@@ -25,6 +25,8 @@ struct ContentView: View {
     @State private var scoreMessage = ""
     @State private var reset = false
     @State private var round = 0
+    @State private var animationDegrees = [0.0, 0.0, 0.0]
+    @State private var wrongTapped:Int? = nil
     
     var body: some View {
         ZStack {
@@ -51,12 +53,31 @@ struct ContentView: View {
                     }
                     ForEach(0..<3) { number in
                         Button {
-                            FlagTapped(number)
-                        } label: {
+                            if number == correctAnswer {
+                                withAnimation(.spring(duration: 1, bounce: 0.5)) {
+                                    animationDegrees[number] = 360
+                                }
+                                FlagTapped(number)
+                            } else {
+                                    withAnimation(.easeInOut(duration: 0.4)) {
+                                        wrongTapped = number
+                                    }
+                                    FlagTapped(number)
+
+                                }
+                            }
+                        label: {
                             Image(countries[number])
                                 .clipShape(.capsule)
                                 .shadow(radius: 10)
+                                .rotation3DEffect(
+                                    .degrees(animationDegrees[number]), axis: (x: 0, y: 1, z: 0))
+                                .opacity(wrongTapped == number ? 0.25 : 1.0)
+                                .scaleEffect(wrongTapped == number ? 0.8 : 1.0)
+                                
                         }
+                        
+
                     } .alert(scoreTitle, isPresented: $showingScore) {
                         Button("Continue", action: askQuestion)
                     } message: {
@@ -96,6 +117,8 @@ struct ContentView: View {
     func askQuestion() {
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
+        animationDegrees = [0.0, 0.0, 0.0]
+        wrongTapped = nil
         if round == 8 {
             showingScore = false
             reset = true
